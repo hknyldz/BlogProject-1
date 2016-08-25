@@ -1,6 +1,5 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.core.validators import URLValidator
 # Create your models here.
 class category(models.Model):
     category_name = models.CharField(max_length=50,null=True)

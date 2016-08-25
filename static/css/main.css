@@ -134,8 +134,8 @@ a:after {
 }
 
 .pt {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 
@@ -174,7 +174,7 @@ a:after {
 }
 
 #white {
-	padding-top: 60px;
+	padding-top: 10px;
 	padding-bottom: 0px;
 	background-color: #ffffff;
 }
