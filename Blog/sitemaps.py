@@ -3,6 +3,7 @@ url_list = []
 db = post.objects.all()
 for i in db:
     url_list.append("/makale/"+i.seo_url)
+
 # sitemaps.py
 from django.contrib import sitemaps
 from django.urls import reverse

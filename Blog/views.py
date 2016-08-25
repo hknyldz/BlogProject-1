@@ -31,3 +31,8 @@ def category_view(request,category_names):
     category_db = category.objects.filter(category_name=str(category_names))
     post_db = post.objects.filter(category_list__category_name=category_names)
     return render(request,'category.html',locals())
+
+def human(request):
+    return render(request,'humans.html')
+def robots(request):
+    return render(request,'robots.html')
