@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Blog.views import home,about,contact,blog
 from django.conf import settings
 from django.views.static import serve
+from Blog.views import home,about,contact,blog,makale,category_view
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,6 +26,8 @@ urlpatterns = [
     url(r'^hakkimda/', about, name='about'),
     url(r'^iletisim/', contact, name='contact'),
     url(r'^blog/', blog, name='blog'),
+    url(r'^kategori/(?P<category_names>\w+)/$', category_view, name='category_view'),
+    url(r'^makale/(?P<slug>[\w-]+)/$', makale, name='makale'),
 ]
 
 if settings.DEBUG:

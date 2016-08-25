@@ -1,8 +1,12 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.core.validators import URLValidator
 # Create your models here.
 class category(models.Model):
     category_name = models.CharField(max_length=50,null=True)
+    category_keywords = models.CharField(max_length=500,null=True)
+    category_description = models.CharField(max_length=500,null=True)
+    category_icon = models.CharField(max_length=100,null=True)
 
     class Meta:
         verbose_name_plural = "Kategoriler"
@@ -18,6 +22,7 @@ class post(models.Model):
     description = models.CharField(max_length=500,null=True)
     image = models.ImageField(upload_to='blog_img',null=True)
     category_list = models.ForeignKey(category,null=True)
+    seo_url = models.CharField(max_length=500,null=True)
     class Meta:
         verbose_name_plural = "Blog Yaz"
 
