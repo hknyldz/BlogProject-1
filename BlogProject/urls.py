@@ -19,6 +19,11 @@ from django.conf import settings
 from django.views.static import serve
 from Blog.views import home,about,contact,blog,makale,category_view
 
+from Blog.sitemaps import StaticViewSitemap
+from django.contrib.sitemaps.views import sitemap
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,6 +33,7 @@ urlpatterns = [
     url(r'^blog/', blog, name='blog'),
     url(r'^kategori/(?P<category_names>\w+)/$', category_view, name='category_view'),
     url(r'^makale/(?P<slug>[\w-]+)/$', makale, name='makale'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]
 
 if settings.DEBUG:
