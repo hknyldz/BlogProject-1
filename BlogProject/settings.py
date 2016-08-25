@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5(p8oq(b40yii0ghde1!pny7h2@)u44azpg2e*=kan9k6rw%9$'
+SECRET_KEY = 'w^m#tfz()jpe2*ykxdm9u3n9ddo1p_hod0i406&oy*(p(s1g+0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr-TR'
 
 TIME_ZONE = 'UTC'
 
@@ -120,3 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# static
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
