@@ -24,23 +24,52 @@
 				<div class="col-lg-8 col-lg-offset-2 centered">
 
 					<h3><i class="{{ i.category_icon }}" aria-hidden="true"> {{ i.category_name }}</i></h3>
-                    <p>{{ i.category_description }}</p>
+                    {% if not post_db %}
+                        <h3>Hiçbir yazı bulunamadı malesef :(</h3>
+                        <hr>
+                        <p>Daha önceden silinmiş veya hiç eklenmemiş olabilir.</p>
+                        {% else %}
+                        <p>{{ i.category_description }}</p>
+                    {% endif %}
 
 				</div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
 	</div><!-- /ww -->
-    {% endfor %}
 
+
+        {% empty %}
+<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<h3>404 Page not found </h3>
+
+                    <p>Böyle bir kategori bulunamadı!</p>
+                    <hr>
+                    <p>Daha sonradan silinmiş veya hiç eklenmemiş olabilir.</p>
+
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+
+
+	<!-- +++++ Information Section +++++ -->
+
+    {% endfor %}
 	<!-- +++++ Projects Section +++++ -->
-	<div class="container pt">
-		<div class="row mt centered">
+    {% if post_db %}
+        <div class="container pt">
+        <div class="row mt centered">
             {% for i in post_db %}
 			<div class="col-lg-4">
 				<a class="zoom green" href="/makale/{{ i.seo_url }}"><img width="500" height="200" src="http://127.0.0.1:8000/media/{{ i.image }}" alt="" /></a>
 				<p>{{ i.title }}</p>
 			</div>
             {% endfor %}
+    {% endif %}
 		</div><!-- /row -->
 	</div><!-- /container -->
 {% endblock %}
