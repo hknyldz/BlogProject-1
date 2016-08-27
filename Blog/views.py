@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_list_or_404
 from Blog.models import post, category
-
 
 # Create your views here.
 def home(request):
@@ -39,14 +38,14 @@ def blog(request):
     })
 
 
-def makale(request, slug):
+def blog_details(request, slug):
     """ makale_details sayfası """
     last_db = post.objects.order_by('?')[:3]
     category_db = category.objects.all()
     db = post.objects.filter(seo_url=slug)
     return render(request, 'blog_details.html', {
         'last_db': last_db,
-        'db': db,
+        'db': get_list_or_404(db),
         'category_db': category_db
     })
 
@@ -61,7 +60,7 @@ def category_view(request, category_names):
         'last_db': last_db,
         'category_db_list': category_db_list,
         'category_db': category_db,
-        'post_db': post_db,
+        'post_db': get_list_or_404(post_db),
         'category_names':category_names
     })
 

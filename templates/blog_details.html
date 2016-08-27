@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="row mt centered">
-        <p><bt>Yazar : <b>Ali Yaman</b></bt> - <bt>Kategori: <a href="#">{{ i.category_list.category_name }}</a></bt> - <bt>Tarih: <a href="#">{{ i.time }}</a></bt></p>
+        <p><bt>Yazar : <span class="renk">Ali Yaman</span></bt> - <bt>Kategori: <a href="/kategori/{{ i.category_list.category_name }}">{{ i.category_list.category_name }}</a></bt> - <bt>Tarih: <span class="renk">{{ i.time }}</span></bt></p>
 		</div><!-- /row -->
 	</div><!-- /container -->
     {% endfor %}
