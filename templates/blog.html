@@ -6,7 +6,7 @@
           <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
           <ul class="dropdown-menu">
               {% for i in category_db %}
-            <li><a href="/kategori/{{ i.category_name }}">{{ i.category_name }}</a></li>
+            <li><a href="/kategori/{{ i.seo_url }}">{{ i.category_name }}</a></li>
               {% endfor %}
           </ul>
         </li>
@@ -48,7 +48,7 @@
         <div class="list-group list-group">
           <h4 class="">Kategoriler</h4>
             {% for i in category_db %}
-<a href="/kategori/{{ i.category_name }}" class="list-group-item"><i class="{{ i.category_icon }}" aria-hidden="true"></i> {{ i.category_name }}</a>
+<a href="/kategori/{{ i.seo_url }}" class="list-group-item"><i class="{{ i.category_icon }}" aria-hidden="true"></i> {{ i.category_name }}</a>
             {% endfor %}
         </div>
       </div>
@@ -58,13 +58,13 @@
 
      {% for i in db %}
       <div class="row">
-        <div class="col-sm-4"><a href="/makale/{{ i.seo_url }}" class=""><img src="http://127.0.0.1:8000/media/{{ i.image }}" class="img-responsive"></a>
+        <div class="col-sm-4"><a href="/{{ i.seo_url }}" class=""><img src="{{ web_site_name }}/media/{{ i.image }}" class="img-responsive"></a>
         </div>
         <div class="col-sm-8">
-          <h3 class="title"><a href="/makale/{{ i.seo_url }}">{{ i.title }}</a></h3>
+          <h3 class="title"><a href="/{{ i.seo_url }}">{{ i.title }}</a></h3>
 
             {{ i.content | safe | truncatechars:210 }}
-          <p class="text-muted"> <i class="fa fa-hashtag" aria-hidden="true"></i> Etiketler :  <a href="/makale/{{ i.seo_url }}">{{ i.keywords }}</a></p>
+          <p class="text-muted"> <i class="fa fa-hashtag" aria-hidden="true"></i> Etiketler :  <a href="/{{ i.seo_url }}">{{ i.keywords }}</a></p>
 
         </div>
       </div>
@@ -84,6 +84,6 @@
 {% endblock %}
 {% block last_content %}
     {% for i in last_db %}
-<a href="/makale/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
+<a href="/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
     {% endfor %}
 {% endblock %}

@@ -5,7 +5,7 @@
           <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
           <ul class="dropdown-menu">
               {% for i in category_db %}
-            <li><a href="/kategori/{{ i.category_name }}">{{ i.category_name }}</a></li>
+            <li><a href="/kategori/{{ i.seo_url }}">{{ i.category_name }}</a></li>
               {% endfor %}
           </ul>
         </li>
@@ -29,13 +29,13 @@
 			</div>
 		</div>
 		<div class="row mt centered">
-        <p><bt>Yazar : <span class="renk">Ali Yaman</span></bt> - <bt>Kategori: <a href="/kategori/{{ i.category_list.category_name }}">{{ i.category_list.category_name }}</a></bt> - <bt>Tarih: <span class="renk">{{ i.time }}</span></bt></p>
+        <p><bt>Yazar : <span class="renk">Ali Yaman</span></bt> - <bt>Kategori: <a href="/kategori/{{ i.category_list.seo_url }}">{{ i.category_list.category_name }}</a></bt> - <bt>Tarih: <span class="renk">{{ i.time }}</span></bt></p>
 		</div><!-- /row -->
 	</div><!-- /container -->
     {% endfor %}
 {% endblock %}
 {% block last_content %}
     {% for i in last_db %}
-<a href="/makale/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
+<a href="/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
     {% endfor %}
 {% endblock %}

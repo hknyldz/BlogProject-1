@@ -6,7 +6,7 @@ class category(models.Model):
     category_keywords = models.CharField(max_length=500,null=True)
     category_description = models.CharField(max_length=500,null=True)
     category_icon = models.CharField(max_length=100,null=True)
-
+    seo_url = models.CharField(max_length=500,null=True)
     class Meta:
         verbose_name_plural = "Kategoriler"
 

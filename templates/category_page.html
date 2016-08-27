@@ -5,7 +5,7 @@
           <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
           <ul class="dropdown-menu">
               {% for i in category_db_list %}
-            <li><a href="/kategori/{{ i.category_name }}">{{ i.category_name }}</a></li>
+            <li><a href="/kategori/{{ i.seo_url }}">{{ i.category_name }}</a></li>
               {% endfor %}
           </ul>
         </li>
@@ -38,7 +38,7 @@
         <div class="row mt centered">
             {% for i in post_db %}
 			<div class="col-lg-4">
-				<a class="zoom green" href="/makale/{{ i.seo_url }}"><img width="500" height="200" src="http://127.0.0.1:8000/media/{{ i.image }}" alt="" /></a>
+				<a class="zoom green" href="/{{ i.seo_url }}"><img width="500" height="200" src="{{ web_site_name }}/media/{{ i.image }}" alt="" /></a>
 				<p>{{ i.title }}</p>
 			</div>
             {% endfor %}
@@ -54,6 +54,6 @@
 {% endblock %}
 {% block last_content %}
     {% for i in last_db %}
-<a href="/makale/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
+<a href="/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
     {% endfor %}
 {% endblock %}

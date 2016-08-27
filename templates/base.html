@@ -41,13 +41,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i> Ali Yaman</a>
+          <a class="navbar-brand" href="{% url 'blog' %}"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i> Ali Yaman</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Ana Sayfa</a></li>
+            <li><a href="/anasayfa">Ana Sayfa</a></li>
             <li><a href="/hakkimda/">Hakkımda</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="/">Blog</a></li>
             <li><a href="/iletisim">İletişim</a></li>
             {% block category %}{% endblock %}
           </ul>

@@ -7,14 +7,16 @@ from django.http import Http404
 def home(request):
     """Ana Sayfa"""
     db = post.objects.order_by('?')[:6]
+    last_db = post.objects.order_by()[:3]
     return render(request, 'profil.html', {
-        'db': db
+        'db': db,
+        'last_db':last_db
     })
 
 
 def about(request):
     """ Hakkımda Sayfası """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     return render(request, 'about.html', {
         'last_db': last_db
     })
@@ -22,7 +24,7 @@ def about(request):
 
 def contact(request):
     """ İletişim Sayfası """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     return render(request, 'contact.html', {
         'last_db': last_db
     })
@@ -30,7 +32,7 @@ def contact(request):
 
 def blog(request):
     """ Blog yazıların listelendiği sayfa"""
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     db = post.objects.order_by()[:6]
     post_db = post.objects.all()
     category_db = category.objects.all()
@@ -45,7 +47,7 @@ def blog(request):
 
 def page(request,id):
     """ Blog Sayfalaması """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     post_db = post.objects.all()
     category_db = category.objects.all()
     pages = Paginator(post_db,5)
@@ -63,7 +65,7 @@ def page(request,id):
 
 def blog_details(request, slug):
     """ makale_details sayfası """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     category_db = category.objects.all()
     db = post.objects.filter(seo_url=slug)
     return render(request, 'blog_details.html', {
@@ -75,10 +77,10 @@ def blog_details(request, slug):
 
 def category_view(request, category_names):
     """ category details sayfası """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     category_db_list = category.objects.all()
-    category_db = category.objects.filter(category_name=str(category_names))
-    post_db = post.objects.filter(category_list__category_name=category_names)
+    category_db = category.objects.filter(seo_url=category_names)
+    post_db = post.objects.filter(category_list__seo_url=category_names)
     pages = Paginator(post_db,5)
     return render(request, 'category.html', {
         'last_db': last_db,
@@ -89,12 +91,14 @@ def category_view(request, category_names):
         'category_names':category_names
     })
 
+
+
 def category_page(request, category_names,id):
     """ category details sayfası """
-    last_db = post.objects.order_by('?')[:3]
+    last_db = post.objects.order_by()[:3]
     category_db_list = category.objects.all()
-    category_db = category.objects.filter(category_name=str(category_names))
-    post_db = post.objects.filter(category_list__category_name=category_names)
+    category_db = category.objects.filter(seo_url=category_names)
+    post_db = post.objects.filter(category_list__seo_url=category_names)
     pages = Paginator(post_db,5)
     try:
         db = pages.page(id)

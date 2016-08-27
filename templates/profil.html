@@ -29,9 +29,10 @@
 <!-- +++++ Projects Section +++++ -->
 	<div class="container pt">
 		<div class="row mt centered">
+        <center><h3>Rastgele Yazılar</h3></center>
             {% for i in db %}
 			<div class="col-lg-4">
-				<a class="zoom green" href="/makale/{{ i.seo_url }}"><img  width="500px" height="200px"  src="http://127.0.0.1:8000/media/{{ i.image }}" alt="{{ i.title }}" /></a>
+				<a class="zoom green" href="/{{ i.seo_url }}"><img  width="500px" height="200px"  src="http://127.0.0.1:8000/media/{{ i.image }}" alt="{{ i.title }}" /></a>
 				<p>{{ i.title }}</p>
 			</div>
             {% endfor %}
@@ -40,7 +41,7 @@
 {% endblock %}
 
 {% block last_content %}
-    {% for i in db %}
-<a href="/makale/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
+    {% for i in last_db %}
+<a href="/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
     {% endfor %}
 {% endblock %}

@@ -1,9 +1,11 @@
-from Blog.models import post
+from Blog.models import post,category
 url_list = []
-db = post.objects.all()
-for i in db:
-    url_list.append("/makale/"+i.seo_url)
-
+post_db = post.objects.all()
+for i in post_db:
+    url_list.append('/'+i.seo_url)
+category_db = category.objects.all()
+for i in category_db:
+    url_list.append('/kategori/'+i.seo_url)
 # sitemaps.py
 from django.contrib import sitemaps
 from django.urls import reverse

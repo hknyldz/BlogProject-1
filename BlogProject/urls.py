@@ -28,14 +28,15 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home, name='home'),
+    url(r'^anasayfa/', home, name='home'),
     url(r'^hakkimda/', about, name='about'),
     url(r'^iletisim/', contact, name='contact'),
-    url(r'^blog/', blog, name='blog'),
+    url(r'^$', blog, name='blog'),
+    url(r'^(?P<slug>[\w-]+)/$', blog_details, name='makale'),
+    url(r'^kategori/(?P<category_names>[\w-]+)/(?P<id>\d+)$', category_page, name='category_page'),
+    url(r'^kategori/(?P<category_names>[\w-]+)/$', category_view, name='category_view'),
     url(r'^kategori/(?P<category_names>\w+)/$', category_view, name='category_view'),
-    url(r'^makale/(?P<slug>[\w-]+)/$', blog_details, name='makale'),
     url(r'^sayfa/(?P<id>\d+)', page, name='page'),
-    url(r'^kategori/(?P<category_names>\w+)/(?P<id>\d+)', category_page, name='category_page'),
     url(r'^humans.txt$', human, name='human'),
     url(r'^robots.txt$', robots, name='human'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
