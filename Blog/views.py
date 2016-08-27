@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_list_or_404
 from Blog.models import post, category
+from django.core.paginator  import Paginator
 
 # Create your views here.
 def home(request):
@@ -29,11 +30,29 @@ def contact(request):
 def blog(request):
     """ Blog yazıların listelendiği sayfa"""
     last_db = post.objects.order_by('?')[:3]
-    db = post.objects.all()
+    db = post.objects.order_by()[:6]
+    post_db = post.objects.all()
     category_db = category.objects.all()
+    pages = Paginator(post_db,5)
+
     return render(request, 'blog.html', {
         'last_db': last_db,
         'db': db,
+        'pages': pages,
+        'category_db': category_db
+    })
+
+def page(request,id):
+    """ Blog Sayfalaması """
+    last_db = post.objects.order_by('?')[:3]
+    post_db = post.objects.all()
+    category_db = category.objects.all()
+    pages = Paginator(post_db,5)
+    db = pages.page(id)
+    return render(request, 'blog.html', {
+        'last_db': last_db,
+        'db': db,
+        'pages': pages,
         'category_db': category_db
     })
 
