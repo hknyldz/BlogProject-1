@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_list_or_404
 from Blog.models import post, category
-from django.core.paginator  import Paginator
+from django.core.paginator  import Paginator,EmptyPage
+from django.http import Http404
 
 # Create your views here.
 def home(request):
@@ -48,8 +49,11 @@ def page(request,id):
     post_db = post.objects.all()
     category_db = category.objects.all()
     pages = Paginator(post_db,5)
-    db = pages.page(id)
-    return render(request, 'blog.html', {
+    try:
+        db = pages.page(id)
+    except EmptyPage:
+        raise Http404()
+    return render(request, 'page.html', {
         'last_db': last_db,
         'db': db,
         'pages': pages,
@@ -75,11 +79,33 @@ def category_view(request, category_names):
     category_db_list = category.objects.all()
     category_db = category.objects.filter(category_name=str(category_names))
     post_db = post.objects.filter(category_list__category_name=category_names)
+    pages = Paginator(post_db,5)
     return render(request, 'category.html', {
         'last_db': last_db,
         'category_db_list': category_db_list,
         'category_db': category_db,
         'post_db': get_list_or_404(post_db),
+        'pages':pages,
+        'category_names':category_names
+    })
+
+def category_page(request, category_names,id):
+    """ category details sayfası """
+    last_db = post.objects.order_by('?')[:3]
+    category_db_list = category.objects.all()
+    category_db = category.objects.filter(category_name=str(category_names))
+    post_db = post.objects.filter(category_list__category_name=category_names)
+    pages = Paginator(post_db,5)
+    try:
+        db = pages.page(id)
+    except EmptyPage:
+        raise Http404()
+    return render(request, 'category_page.html', {
+        'last_db': last_db,
+        'category_db_list': category_db_list,
+        'category_db': category_db,
+        'post_db': db,
+        'pages':pages,
         'category_names':category_names
     })
 

@@ -58,7 +58,7 @@
 
      {% for i in db %}
       <div class="row">
-        <div class="col-sm-4"><a href="#" class=""><img src="http://127.0.0.1:8000/media/{{ i.image }}" class="img-responsive"></a>
+        <div class="col-sm-4"><a href="/makale/{{ i.seo_url }}" class=""><img src="http://127.0.0.1:8000/media/{{ i.image }}" class="img-responsive"></a>
         </div>
         <div class="col-sm-8">
           <h3 class="title"><a href="/makale/{{ i.seo_url }}">{{ i.title }}</a></h3>

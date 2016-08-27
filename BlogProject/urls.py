@@ -17,7 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
-from Blog.views import home,about,contact,blog,blog_details,category_view,human,robots,page
+from Blog.views import (home,about,contact,blog,
+                        blog_details,category_view,human,robots,page,category_page)
 
 from Blog.sitemaps import StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
@@ -34,6 +35,7 @@ urlpatterns = [
     url(r'^kategori/(?P<category_names>\w+)/$', category_view, name='category_view'),
     url(r'^makale/(?P<slug>[\w-]+)/$', blog_details, name='makale'),
     url(r'^sayfa/(?P<id>\d+)', page, name='page'),
+    url(r'^kategori/(?P<category_names>\w+)/(?P<id>\d+)', category_page, name='category_page'),
     url(r'^humans.txt$', human, name='human'),
     url(r'^robots.txt$', robots, name='human'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
