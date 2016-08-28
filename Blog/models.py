@@ -1,5 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
 # Create your models here.
 class category(models.Model):
     category_name = models.CharField(max_length=50,null=True)
@@ -15,13 +17,17 @@ class category(models.Model):
 
 class post(models.Model):
     title = models.CharField(max_length=500,null=True)
-    time = models.DateField(null=True)
+    time = models.DateTimeField(auto_now=False,null=True)
     content = RichTextField(null=True)
     keywords = models.CharField(max_length=500,null=True)
     description = models.CharField(max_length=500,null=True)
-    image = models.ImageField(upload_to='blog_img',null=True)
+    image = ProcessedImageField(upload_to='blog_img',
+                                           processors=[ResizeToFill(400, 225)],
+                                           format='JPEG',
+                                           options={'quality': 60},null=True)
     category_list = models.ForeignKey(category,null=True)
     seo_url = models.CharField(max_length=500,null=True)
+
     class Meta:
         verbose_name_plural = "Blog Yaz"
 
@@ -30,7 +36,9 @@ class post(models.Model):
 
 class content_media(models.Model):
     blog = models.ForeignKey(post)
-    image = models.ImageField(upload_to='blog_img',null=True)
+    image = ProcessedImageField(upload_to='blog_img',
+                                           format='JPEG',
+                                           options={'quality': 60},null=True)
 
     class Meta:
         verbose_name_plural = "Resim Ekle"

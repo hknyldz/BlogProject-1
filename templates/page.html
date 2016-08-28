@@ -17,7 +17,7 @@
           <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
           <ul class="dropdown-menu">
               {% for i in category_db %}
-            <li><a href="/kategori/{{ i.category_name }}">{{ i.category_name }}</a></li>
+            <li><a href="/kategori/{{ i.seo_url }}">{{ i.category_name }}</a></li>
               {% endfor %}
           </ul>
         </li>
@@ -55,7 +55,7 @@
         <div class="list-group list-group">
           <h4 class="">Kategoriler</h4>
             {% for i in category_db %}
-<a href="/kategori/{{ i.category_name }}" class="list-group-item"><i class="{{ i.category_icon }}" aria-hidden="true"></i> {{ i.category_name }}</a>
+<a href="/kategori/{{ i.seo_url }}" class="list-group-item"><i class="{{ i.category_icon }}" aria-hidden="true"></i> {{ i.category_name }}</a>
             {% endfor %}
         </div>
       </div>
