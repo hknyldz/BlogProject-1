@@ -2,11 +2,16 @@
 {% load static %}
 
 <!-- SEO -->
-{% block description %}Yeteneklerimi ve benim hakkında daha detaylı bilgiler içermektedir.{% endblock %}
-
-{% block keywords %}kişisel blog, blog, programlama, kişisel gelişim, bloglama, developer blog, ali yaman kim, ali yaman kimdir{% endblock %}
-
-{% block content %}
+{% block title %}Ali Yaman Kimdir?{% endblock %}
+{% block meta_title %}Ali Yaman Kimdir?{% endblock %}
+{% block description %}Ali Yaman Kişisel blog hakkında kişisel bilgiler bulunmaktadır. {% endblock %}
+{% block keywords %}kişisel,kişisel blog,blog,ali yaman,ali yaman kimdir,ali yaman blog,yaman blog,python developer{% endblock %}
+<!-- SEO -->
+{% block og_title %}Ali Yaman Kimdir?{% endblock %}
+{% block og_description %}Ali Yaman Kişisel blog hakkında kişisel bilgiler bulunmaktadır. {% endblock %}
+{% block og_url %}{{request.get_raw_uri}}{% endblock %}
+{% block og_site_name %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+{{% block content %}
 
 <!-- +++++ Welcome Section +++++ -->
 	<div id="ww">

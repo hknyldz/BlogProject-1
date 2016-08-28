@@ -2,7 +2,7 @@ from django.shortcuts import render,get_list_or_404
 from Blog.models import post, category
 from django.core.paginator  import Paginator,EmptyPage
 from django.http import Http404
-
+from BlogProject.settings import web_site_name,web_site_slogan,web_site_url
 # Create your views here.
 def home(request):
     """Ana Sayfa"""
@@ -18,7 +18,9 @@ def about(request):
     """ Hakkımda Sayfası """
     last_db = post.objects.order_by()[:3]
     return render(request, 'about.html', {
-        'last_db': last_db
+        'last_db': last_db,
+        'web_site_name':web_site_name,
+        'web_site_slogan':web_site_slogan,
     })
 
 
@@ -42,7 +44,9 @@ def blog(request):
         'last_db': last_db,
         'db': db,
         'pages': pages,
-        'category_db': category_db
+        'category_db': category_db,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan,
     })
 
 def page(request,id):
@@ -68,10 +72,22 @@ def blog_details(request, slug):
     last_db = post.objects.order_by()[:3]
     category_db = category.objects.all()
     db = post.objects.filter(seo_url=slug)
+    for seo_info in db:
+        title = seo_info.title
+        description = seo_info.description
+        keywords = seo_info.keywords
+        image =  seo_info.image
     return render(request, 'blog_details.html', {
         'last_db': last_db,
         'db': get_list_or_404(db),
-        'category_db': category_db
+        'category_db': category_db,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan,
+        'web_site_url':web_site_url,
+        'title':title,
+        'description':description,
+        'keywords':keywords,
+        'image':image
     })
 
 

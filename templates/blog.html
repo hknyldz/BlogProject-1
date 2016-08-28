@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!-- SEO -->
+{% block title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block meta_title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block description %}Ali Yaman kişisel blog sayfasıdır.{% endblock %}
+{% block keywords %}kişisel blog,yazılımcının günlüğü,kişisel yazılar,kişisel,blog{% endblock %}
+<!-- SEO -->
+{% block og_title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block og_description %}Ali Yaman Kişisel blog hakkında kişisel bilgiler bulunmaktadır. {% endblock %}
+{% block og_url %}{{request.get_raw_uri}}{% endblock %}
+{% block og_site_name %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+
 {% block category %}
 <li class="dropdown">
           <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler <span class="caret"></span></a>
@@ -11,10 +22,6 @@
           </ul>
         </li>
 {% endblock %}
-<!-- SEO -->
-{% block description %}Yeteneklerimi ve benim hakkında daha detaylı bilgiler içermektedir.{% endblock %}
-
-{% block keywords %}kişisel blog, blog, programlama, kişisel gelişim, bloglama, developer blog, ali yaman kim, ali yaman kimdir{% endblock %}
 
 {% block content %}
 
@@ -58,7 +65,7 @@
 
      {% for i in db %}
       <div class="row">
-        <div class="col-sm-4"><a href="/{{ i.seo_url }}" class=""><img src="{{ web_site_name }}/media/{{ i.image }}" class="img-responsive"></a>
+        <div class="col-sm-4"><a href="/{{ i.seo_url }}" class=""><img src="media/{{ i.image }}" class="img-responsive"></a>
         </div>
         <div class="col-sm-8">
           <h3 class="title"><a href="/{{ i.seo_url }}">{{ i.title }}</a></h3>

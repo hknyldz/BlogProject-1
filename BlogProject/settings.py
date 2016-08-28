@@ -28,8 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# site name
-web_site_name = 'http://127.0.0.1:8000'
+# site info
+web_site_url = 'http://127.0.0.1:8000'
+web_site_name = 'Ali Yaman'
+web_site_slogan = 'Kişisel Blog'
 
 # Application definition
 
