@@ -2,15 +2,15 @@
 {% load static %}
 
 <!-- SEO -->
-{% block title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
-{% block meta_title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+{% block meta_title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
 {% block description %}Ali Yaman kişisel blog sayfasıdır.{% endblock %}
 {% block keywords %}kişisel blog,yazılımcının günlüğü,kişisel yazılar,kişisel,blog{% endblock %}
 <!-- SEO -->
-{% block og_title %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block og_title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
 {% block og_description %}Ali Yaman Kişisel blog hakkında kişisel bilgiler bulunmaktadır. {% endblock %}
 {% block og_url %}{{request.get_raw_uri}}{% endblock %}
-{% block og_site_name %}{{ web_site_name }} | {{ web_site_slogan }}{% endblock %}
+{% block og_site_name %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
 
 {% block category %}
 <li class="dropdown">

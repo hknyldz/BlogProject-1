@@ -10,7 +10,9 @@ def home(request):
     last_db = post.objects.order_by()[:3]
     return render(request, 'profil.html', {
         'db': db,
-        'last_db':last_db
+        'last_db':last_db,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan
     })
 
 
@@ -28,7 +30,9 @@ def contact(request):
     """ İletişim Sayfası """
     last_db = post.objects.order_by()[:3]
     return render(request, 'contact.html', {
-        'last_db': last_db
+        'last_db': last_db,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan
     })
 
 
@@ -63,7 +67,9 @@ def page(request,id):
         'last_db': last_db,
         'db': db,
         'pages': pages,
-        'category_db': category_db
+        'category_db': category_db,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan
     })
 
 
@@ -98,13 +104,22 @@ def category_view(request, category_names):
     category_db = category.objects.filter(seo_url=category_names)
     post_db = post.objects.filter(category_list__seo_url=category_names)
     pages = Paginator(post_db,5)
+    for seo_info in category_db:
+        title = seo_info.category_name
+        description = seo_info.category_description
+        keywords = seo_info.category_keywords
     return render(request, 'category.html', {
         'last_db': last_db,
         'category_db_list': category_db_list,
         'category_db': category_db,
         'post_db': get_list_or_404(post_db),
         'pages':pages,
-        'category_names':category_names
+        'category_names':category_names,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan
     })
 
 
@@ -116,6 +131,10 @@ def category_page(request, category_names,id):
     category_db = category.objects.filter(seo_url=category_names)
     post_db = post.objects.filter(category_list__seo_url=category_names)
     pages = Paginator(post_db,5)
+    for seo_info in category_db:
+        title = seo_info.category_name
+        description = seo_info.category_description
+        keywords = seo_info.category_keywords
     try:
         db = pages.page(id)
     except EmptyPage:
@@ -126,7 +145,12 @@ def category_page(request, category_names,id):
         'category_db': category_db,
         'post_db': db,
         'pages':pages,
-        'category_names':category_names
+        'category_names':category_names,
+        'title': title,
+        'description': description,
+        'keywords': keywords,
+        'web_site_name': web_site_name,
+        'web_site_slogan': web_site_slogan
     })
 
 
