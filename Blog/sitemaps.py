@@ -8,14 +8,13 @@ for i in category_db:
     url_list.append('/kategori/'+i.seo_url)
 # sitemaps.py
 from django.contrib import sitemaps
-from django.urls import reverse
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return ['','/hakkimda','/blog','/iletisim']+url_list
+        return ['','/hakkimda','/iletisim']
 
     def location(self, item):
         return item

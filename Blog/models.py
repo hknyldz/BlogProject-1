@@ -27,7 +27,7 @@ class post(models.Model):
                                            options={'quality': 60},null=True)
     category_list = models.ForeignKey(category,null=True)
     seo_url = models.CharField(max_length=500,null=True)
-
+    is_active = models.BooleanField(default=False)
     class Meta:
         verbose_name_plural = "Blog Yaz"
 

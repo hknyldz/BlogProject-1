@@ -8,10 +8,13 @@ class MediaInline(admin.TabularInline):
     extra = 0
 
 class Blog(admin.ModelAdmin):
-    list_display = ('title', 'content', 'keywords', 'description', 'image','time','category_list')
-    search_fields = ('title', 'content')
+    list_display = ('title', 'keywords', 'description', 'image','time','category_list','is_active')
+    search_fields = ('title', 'content','is_active')
+    list_editable = ('category_list', 'is_active','image','time')
+    list_filter = (
+        ('is_active', admin.BooleanFieldListFilter),
+    )
     inlines = [MediaInline]
-
 admin.site.register(post,Blog)
 admin.site.register(content_media)
 admin.site.register(category)
