@@ -157,10 +157,17 @@ def category_page(request, category_names,id):
 def human(request):
     """ humans.txt"""
 
-    return render(request, 'humans.html')
+    return render(request, 'blog_templates/humans.html')
 
 
 def robots(request):
     """robots.txt"""
 
-    return render(request, 'robots.html')
+    return render(request, 'blog_templates/robots.html')
+
+def last_content(request):
+    """ Alt taraf son yazılar """
+    last_db = post.objects.order_by()[:3]
+    return render(request,'blog_templates/last_content.html',{
+        'last_db':last_db
+    })

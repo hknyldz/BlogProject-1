@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog_templates/base.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -58,8 +58,7 @@
 	</div><!-- /container -->
 
 {% endblock %}
+
 {% block last_content %}
-    {% for i in last_db %}
-<a href="/{{ i.seo_url }}"><i class="fa fa-share" aria-hidden="true"></i> {{ i.title }}</a><br/>
-    {% endfor %}
+{% include 'blog_templates/last_content.html' %}
 {% endblock %}
