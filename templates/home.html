@@ -1,0 +1,52 @@
+{% extends 'blog_templates/base.html' %}
+{% load static %}
+
+<!-- SEO -->
+{% block title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+{% block meta_title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+{% block description %}Ali Yaman Kişisel blog hakkında kişisel rastgele yazılar bulunmaktadır.{% endblock %}
+{% block keywords %}kişisel blog,yazılımcının günlüğü,kişisel yazılar,kişisel,blog,portal,kişisel portal{% endblock %}
+<!-- SEO -->
+{% block og_title %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+{% block og_description %}Ali Yaman Kişisel blog hakkında kişisel rastgele yazılar bulunmaktadır.{% endblock %}
+{% block og_url %}{{request.get_raw_uri}}{% endblock %}
+{% block og_site_name %}{{ web_site_name }} - {{ web_site_slogan }}{% endblock %}
+
+
+{% block content %}
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<img src="{%  static 'img/user.png' %}" alt="Stanley">
+					<h3>Merhaba! </h3>
+                    <p>Herzaman bilginin gücüne inanlardan oldum , araştirmalarım ve deneyimlerimlerimi sizlere sunmayı amaçlıyorum.
+                    İstanbul Üniversitesi Kontrol ve Otomasyon Öğrencisiyim Elektronik ve Programlama ile ilgim var.
+                    İlgi alanımlarla ilgili deneyimleri size sunmayı amaçlıyorum.
+                    </p>
+
+
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+
+
+<!-- +++++ Projects Section +++++ -->
+	<div class="container pt">
+		<div class="row mt centered">
+        <center><h3>Rastgele Yazılar</h3></center>
+            {% for i in db %}
+			<div class="col-lg-4">
+				<a class="zoom green" href="/{{ i.seo_url }}"><img  width="500px" height="200px"  src="http://127.0.0.1:8000/media/{{ i.image }}" alt="{{ i.title }}" /></a>
+				<p>{{ i.title }}</p>
+			</div>
+            {% endfor %}
+		</div><!-- /row -->
+	</div><!-- /container -->
+{% endblock %}
+
+{% block last_content %}
+{% include 'blog_templates/last_content.html' %}
+{% endblock %}
