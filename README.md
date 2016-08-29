@@ -5,6 +5,7 @@
 * 4-) Kategori oluşturma
 * 5-) Makale oluşturma
 * 6-) Media Bölümleri
+* 6-) Resim optimize (%60 oranında)
 * 7-) Esnek Kategori , media ve makale oluşturma paneli.
 
 # Templates ayarları
