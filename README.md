@@ -37,7 +37,7 @@ buraya yönlendirir.
 blog.html üzerinde daha fazla yazı göstermek isterseniz buraya yönlendirir. Yani sayfalama
 işlemi yapar.
 
-**8-)** home.html
+# **8-)** home.html
 Bir nevi portal işlemi yapar. Yazar hakkında kısa bilgi ve 6 adet rastgele yazı çeker.
 
 Şimdilik özet bilgi olarak ekledim daha geniş anlatım olacaktır.
