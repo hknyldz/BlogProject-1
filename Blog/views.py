@@ -8,7 +8,7 @@ def home(request):
     """Ana Sayfa"""
     db = post.objects.filter(is_active=True).order_by('?')[:6]
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
-    return render(request, 'profil.html', {
+    return render(request, 'home.html', {
         'db': db,
         'last_db':last_db,
         'web_site_name': web_site_name,

@@ -8,9 +8,9 @@ class MediaInline(admin.TabularInline):
     extra = 0
 
 class Blog(admin.ModelAdmin):
-    list_display = ('title','seo_url' ,'keywords', 'description', 'image','time','category_list','is_active')
+    list_display = ('title','seo_url', 'image','time','category_list','is_active')
     search_fields = ('title', 'content','is_active')
-    list_editable = ('category_list', 'is_active','image','time','seo_url')
+    list_editable = ('category_list', 'is_active','image','time')
     list_filter = (
         ('is_active', admin.BooleanFieldListFilter),
     )
