@@ -27,7 +27,6 @@
 {% block content %}
 
 	<!-- +++++ Projects Section +++++ -->
-
     {% for i in db %}
 	<div class="container pt ">
 		<div class="row mt">
@@ -36,6 +35,7 @@
 				<hr>
                 {{ i.content | safe }}
 			</div>
+            {{ i.get_absolute_url }}
 		</div>
 		<div class="row mt centered">
         <p><bt>Yazar : <span class="renk">Ali Yaman</span></bt> - <bt>Kategori: <a href="/kategori/{{ i.category_list.seo_url }}">{{ i.category_list.category_name }}</a></bt> - <bt>Tarih: <span class="renk">{{ i.time }}</span></bt></p>
