@@ -66,8 +66,8 @@
         </div>
         <div class="col-sm-8">
           <h3 class="title"><a href="/{{ i.seo_url }}">{{ i.title }}</a></h3>
-
-            {{ i.content | safe | truncatechars:210 }}
+            <span class="title">{{ i.content | safe | truncatechars_html:300 }}</span>
+        <hr>
           <p class="text-muted"> <i class="fa fa-hashtag" aria-hidden="true"></i> Etiketler :  <a href="/{{ i.seo_url }}">{{ i.keywords }}</a></p>
 
         </div>

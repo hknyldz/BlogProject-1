@@ -14,7 +14,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
     changefreq = 'daily'
 
     def items(self):
-        return ['','/hakkimda','/iletisim']
+        return ['','/hakkimda','/iletisim']+url_list
 
     def location(self, item):
         return item
