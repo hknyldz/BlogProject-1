@@ -55,3 +55,4 @@ class content_media(models.Model):
 
     def __str__(self):
         return '{}'.format(self.blog.title)
+
