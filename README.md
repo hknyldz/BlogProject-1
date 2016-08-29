@@ -1,11 +1,11 @@
 # Ekli olan özellikler
-1-) Sitemap.xml
-2-) robots.txt
-3-) humans.txt
-4-) Kategori oluşturma
-5-) Makale oluşturma
-6-) Media Bölümleri
-7-) Esnek Kategori , media ve makale oluşturma paneli.
+* 1-) Sitemap.xml
+* 2-) robots.txt
+* 3-) humans.txt
+* 4-) Kategori oluşturma
+* 5-) Makale oluşturma
+* 6-) Media Bölümleri
+* 7-) Esnek Kategori , media ve makale oluşturma paneli.
 
 # Templates ayarları
 
