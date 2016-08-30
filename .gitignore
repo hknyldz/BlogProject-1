@@ -87,3 +87,11 @@ ENV/
 
 # Rope project settings
 .ropeproject
+.idea/dataSources.local.xml
+.idea/workspace.xml
+Blog/migrations/0012_auto_20160829_1000.py
+Blog/migrations/0013_auto_20160829_1014.py
+Blog/migrations/0014_auto_20160829_1015.py
+Blog/migrations/0015_auto_20160829_1202.py
+static/admin/
+uploads/

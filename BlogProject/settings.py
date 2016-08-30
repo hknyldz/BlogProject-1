@@ -25,7 +25,7 @@ SECRET_KEY = 'w^m#tfz()jpe2*ykxdm9u3n9ddo1p_hod0i406&oy*(p(s1g+0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # site info
