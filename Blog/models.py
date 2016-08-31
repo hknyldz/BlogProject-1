@@ -28,9 +28,7 @@ class post(models.Model):
     keywords = models.CharField(max_length=500,null=True)
     description = models.CharField(max_length=500,null=True)
     image = ProcessedImageField(upload_to='blog_img',
-                                           processors=[ResizeToFill(400, 225)],
-                                           format='JPEG',
-                                           options={'quality': 60},null=True)
+                                           options={'quality': 70},null=True)
     category_list = models.ForeignKey(category,null=True)
     seo_url = models.CharField(max_length=500,unique=True, null=True, blank=True,verbose_name='Seo_URL : (Otomatik doldurur)')
     is_active = models.BooleanField(default=False)
@@ -48,7 +46,7 @@ class content_media(models.Model):
     blog = models.ForeignKey(post)
     image = ProcessedImageField(upload_to='blog_img',
                                            format='JPEG',
-                                           options={'quality': 60},null=True)
+                                           options={'quality': 70},null=True)
 
     class Meta:
         verbose_name_plural = "Resim Ekle"

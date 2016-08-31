@@ -62,9 +62,8 @@
 
      {% for i in db %}
       <div class="row">
-        <div class="col-sm-4"><a href="/{{ i.seo_url }}" class=""><img src="media/{{ i.image }}" class="img-responsive"></a>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-12">
           <h3 class="title"><a href="/{{ i.seo_url }}">{{ i.title }}</a></h3>
             <span class="title">{{ i.content | safe | truncatechars_html:300 }}</span>
         <hr>

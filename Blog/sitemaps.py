@@ -22,7 +22,7 @@ class StaticViewSitemap(sitemaps.Sitemap):
             return url_list
 
     def items(self):
-        return ['','/hakkimda','/iletisim']+self.sitemap_db()
+        return ['','/hakkimda','/iletisim','/anasayfa']+self.sitemap_db()
 
     def location(self, item):
         return item

@@ -22,13 +22,14 @@
           </ul>
         </li>
 {% endblock %}
-
 {% block content %}
+
 	<!-- +++++ Projects Section +++++ -->
     {% for i in db %}
 	<div class="container pt ">
 		<div class="row mt">
 			<div class="col-lg-12 col-lg-offset-0 centered">
+<div class="col-sm-12"><a href="/{{ i.seo_url }}" class=""><img src="/media/{{ i.image }}" class="img-responsive"></a></div>
 				<h3>{{ i.title }}</h3>
 				<hr>
                 {{ i.content | safe }}

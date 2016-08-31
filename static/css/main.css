@@ -250,3 +250,13 @@ bt {
     -o-transition: color 0.1s ease-in, background 0.1s ease-in;
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
+
+img{
+margin: auto;
+max-width: 100%;
+height: auto;
+display: block;
+-webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+}
