@@ -3,3 +3,4 @@ pillow
 django-imagekit
 django-uuslug
 django-tinymce
+https://github.com/darklow/django-suit/tarball/v2
