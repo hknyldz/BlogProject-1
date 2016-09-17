@@ -1,3 +1,10 @@
+<a href="http://i.hizliresim.com/lEq9Rp.png"><img src="http://i.hizliresim.com/lEq9Rp.png" alt="Örnek Resim"></a>
+
+<a href="http://i.hizliresim.com/rE5Rvz.png"><img src="http://i.hizliresim.com/rE5Rvz.png" alt="Örnek Resim"></a>
+
+# Site Bilgileri
+Settings.py girip "site_info" başlıklı bilgileri kendinize göre belirleyin.
+
 # Ekli olan özellikler
 * 1-) Sitemap.xml
 * 2-) robots.txt
@@ -7,6 +14,11 @@
 * 6-) Media Bölümleri
 * 6-) Resim optimize (%60 oranında)
 * 7-) Esnek Kategori , media ve makale oluşturma paneli.
+
+
+# SEO URL
+
+<a href="http://i.hizliresim.com/MkVWkg.png"><img src="http://i.hizliresim.com/MkVWkg.png" alt="Örnek Resim"></a>
 
 # Templates ayarları
 
