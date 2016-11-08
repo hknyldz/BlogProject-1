@@ -1,6 +1,7 @@
 django==1.10.1
 django-ckeditor
 pillow
+suit
 django-imagekit
 django-uuslug
 django-tinymce
