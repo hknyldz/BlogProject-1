@@ -1,3 +1,4 @@
+django==1.10.1
 django-ckeditor
 pillow
 django-imagekit
