@@ -88,7 +88,7 @@ ENV/
 # Rope project settings
 .ropeproject
 .idea
-.idea/
+.idea/vcs.xml
 .idea/dataSources.local.xml
 .idea/workspace.xml
 Blog/migrations/0012_auto_20160829_1000.py
