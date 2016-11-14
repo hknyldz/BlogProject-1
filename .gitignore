@@ -77,6 +77,7 @@ celerybeat-schedule
 
 # dotenv
 .env
+.idea
 
 # virtualenv
 venv/
@@ -87,7 +88,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
-.idea
 .idea/vcs.xml
 .idea/dataSources.local.xml
 .idea/workspace.xml
