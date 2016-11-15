@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render,get_list_or_404
 from Blog.models import post, category
 from django.core.paginator  import Paginator,EmptyPage
-from django.http import Http404
+from django.http import Http404,HttpResponse
 from BlogProject.settings import web_site_name,web_site_slogan,web_site_url
+from django.db.utils import OperationalError
 # Create your views here.
 def home(request):
     """Ana Sayfa"""
@@ -17,7 +19,7 @@ def home(request):
 
 
 def about(request):
-    """ Hakkımda Sayfası """
+    """ Hakkimda Sayfasi """
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
     return render(request, 'about.html', {
         'last_db': last_db,
@@ -27,7 +29,7 @@ def about(request):
 
 
 def contact(request):
-    """ İletişim Sayfası """
+    """ iletisim sayfasi """
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
     return render(request, 'contact.html', {
         'last_db': last_db,
@@ -37,24 +39,28 @@ def contact(request):
 
 
 def blog(request):
-    """ Blog yazıların listelendiği sayfa"""
-    last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
-    db = post.objects.filter(is_active=True).order_by('-time')[:6]
-    post_db = post.objects.filter(is_active=True)
-    category_db = category.objects.all()
-    pages = Paginator(post_db,5)
-
-    return render(request, 'blog.html', {
-        'last_db': last_db,
-        'db': db,
-        'pages': pages,
-        'category_db': category_db,
-        'web_site_name': web_site_name,
-        'web_site_slogan': web_site_slogan,
-    })
+    """ blog yazilarin listelendigi yer ve ana sayfa"""
+    try:
+        last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
+        db = post.objects.filter(is_active=True).order_by('-time')[:6]
+        post_db = post.objects.filter(is_active=True)
+        category_db = category.objects.all()
+        pages = Paginator(post_db, 5)
+        return render(request, 'blog.html', {
+            'last_db': last_db,
+            'db': db,
+            'pages': pages,
+            'category_db': category_db,
+            'web_site_name': web_site_name,
+            'web_site_slogan': web_site_slogan,
+        })
+    except OperationalError:
+        return HttpResponse('<b><center>Merhaba, büyük ihtimal bu projeyi yeni kurdun.<br></b>'
+                            'Lütfen veritabanı yapılandırılması yap. <br> python manage.py makemigrations'
+                            '<br> python manage.py migrate </center>')
 
 def page(request,id):
-    """ Blog Sayfalaması """
+    """ Blog Sayfalamasi """
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
     post_db = post.objects.filter(is_active=True).order_by('-time')
     category_db = category.objects.all()
@@ -74,7 +80,7 @@ def page(request,id):
 
 
 def blog_details(request, slug):
-    """ makale_details sayfası """
+    """ makale_details sayfasi """
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
     category_db = category.objects.all()
     db = post.objects.filter(seo_url=slug,is_active=True)
@@ -98,7 +104,7 @@ def blog_details(request, slug):
 
 
 def category_view(request, category_names):
-    """ category details sayfası """
+    """ category details sayfasi """
     last_db = post.objects.filter(is_active=True).order_by('-time')[:3]
     category_db_list = category.objects.all()
     category_db = category.objects.filter(seo_url=category_names)
@@ -112,7 +118,7 @@ def category_view(request, category_names):
         'last_db': last_db,
         'category_db_list': category_db_list,
         'category_db': category_db,
-        'post_db': get_list_or_404(post_db),
+        'post_db': post_db,
         'pages':pages,
         'category_names':category_names,
         'title': title,

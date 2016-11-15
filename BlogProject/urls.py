@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^kategori/(?P<category_names>\w+)/$', category_view, name='category_view'),
     url(r'^sayfa/(?P<id>\d+)', page, name='page'),
     url(r'^humans.txt$', human, name='human'),
-    url(r'^robots.txt$', robots, name='human'),
+    url(r'^robots.txt$', robots, name='robots'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
 ]
 

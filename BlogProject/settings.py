@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # site info
 web_site_url = 'http://127.0.0.1:8000'
 web_site_name = 'Ali Yaman'
-web_site_slogan = 'Kişisel Blog'
+web_site_slogan = 'Kisisel Blog'
 
 # site change
 SITE_ID = '1'
@@ -39,7 +39,6 @@ SITE_ID = '1'
 # Application definition
 
 INSTALLED_APPS = [
-    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
