@@ -1,5 +1,6 @@
 #DEMO
 DEMO : https://aliymnblog.herokuapp.com
+
 NOT : Biraz geç açılabilir, heroku ücretsiz olduğu için arada sunucuyu uyutuyor. yanit geldiğinde tekrar uyandırıyor.
 
 Version : Django 1.10 ve Python3.5.2
