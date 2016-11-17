@@ -1,3 +1,5 @@
+Django öğrenirken yazdığım bir blogtur. Bazı kurallara veya yanlış yaptığım noktalar belki olabilir.
+
 #DEMO
 DEMO : https://aliymnblog.herokuapp.com
 
