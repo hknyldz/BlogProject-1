@@ -83,7 +83,7 @@ def blog_details(request, slug):
     """ makale_details sayfasi """
     last_db = Post.objects.filter(is_active=True).order_by('-time')[:3]
     category_db = Category.objects.all()
-    db = Category.objects.filter(seo_url=slug,is_active=True)
+    db = Post.objects.filter(seo_url=slug,is_active=True)
     for seo_info in db:
         title = seo_info.title
         description = seo_info.description

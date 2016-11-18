@@ -1,6 +1,6 @@
 django
 django-ckeditor
 pillow
-django-imagekit
 django-uuslug
 django-tinymce
+django-ajaximage

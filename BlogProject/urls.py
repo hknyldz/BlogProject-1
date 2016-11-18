@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
@@ -39,7 +39,8 @@ urlpatterns = [
     url(r'^sayfa/(?P<id>\d+)', page, name='page'),
     url(r'^humans.txt$', human, name='human'),
     url(r'^robots.txt$', robots, name='robots'),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap')
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^ajaximage/', include('ajaximage.urls')),
 ]
 
 if settings.DEBUG:

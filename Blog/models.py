@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from imagekit.models import ProcessedImageField
 from uuslug import slugify
+from ajaximage.fields import AjaxImageField
 # Create your models here.
 class Category(models.Model):
     category_name = models.CharField(max_length=500,null=True,unique=True)
@@ -25,8 +25,7 @@ class Post(models.Model):
     content = RichTextField(null=True)
     keywords = models.CharField(max_length=500,null=True)
     description = models.CharField(max_length=500,null=True)
-    image = ProcessedImageField(upload_to='blog_img',
-                                           options={'quality': 70},null=True)
+    image = AjaxImageField(upload_to='blog_img')
     category_list = models.ForeignKey(Category,null=True)
     seo_url = models.CharField(max_length=500, null=True, blank=True,verbose_name='Seo_URL : (Otomatik doldurur)')
     is_active = models.BooleanField(default=False)
@@ -42,10 +41,7 @@ class Post(models.Model):
 
 class Content_media(models.Model):
     blog = models.ForeignKey(Post)
-    image = ProcessedImageField(upload_to='blog_img',
-                                           format='JPEG',
-                                           options={'quality': 70},null=True)
-
+    image = AjaxImageField(upload_to='blog_img')
     class Meta:
         verbose_name_plural = "Resim Ekle"
 
