@@ -1,6 +1,6 @@
 # sitemaps.py
 from django.contrib import sitemaps
-from .models import post,category
+from .models import Post,Category
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 0.5
@@ -10,10 +10,10 @@ class StaticViewSitemap(sitemaps.Sitemap):
         # post ve category urlleri aliyorum.
         try:
             url_list = []
-            post_db = post.objects.all()
+            post_db = Post.objects.all()
             for i in post_db:
                 url_list.append('/' + i.seo_url)
-            category_db = category.objects.all()
+            category_db = Category.objects.all()
             for i in category_db:
                 url_list.append('/kategori/' + i.seo_url)
             return url_list

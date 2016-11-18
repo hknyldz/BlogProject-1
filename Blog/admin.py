@@ -1,10 +1,10 @@
 from django.contrib import admin
-from Blog.models import post,content_media,category
+from Blog.models import Post,Content_media,Category
 # Register your models here.
 
 
 class MediaInline(admin.TabularInline):
-    model = content_media
+    model = Content_media
     extra = 0
 
 class Blog(admin.ModelAdmin):
@@ -17,8 +17,8 @@ class Blog(admin.ModelAdmin):
     )
     inlines = [MediaInline]
 
-class admin_category(admin.ModelAdmin):
+class Admin_category(admin.ModelAdmin):
     exclude = ('seo_url',)
-admin.site.register(post,Blog)
-admin.site.register(content_media)
-admin.site.register(category,admin_category)
+admin.site.register(Post,Blog)
+admin.site.register(Content_media)
+admin.site.register(Category,Admin_category)
