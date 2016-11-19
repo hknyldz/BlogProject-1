@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from Blog.models import Post,Content_media,Category
 # Register your models here.

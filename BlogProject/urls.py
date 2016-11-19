@@ -22,6 +22,7 @@ from Blog.views import (home,about,contact,blog,
 
 from Blog.sitemaps import StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
+
 sitemaps = {
     'static': StaticViewSitemap,
 }
@@ -41,6 +42,7 @@ urlpatterns = [
     url(r'^robots.txt$', robots, name='robots'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     url(r'^ajaximage/', include('ajaximage.urls')),
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
 ]
 
 if settings.DEBUG:
