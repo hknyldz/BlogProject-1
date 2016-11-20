@@ -48,7 +48,7 @@
 				<p>{{ i.title }}</p>
 			</div>
             {% endfor %}
-
+    {% endif %}
 		</div><!-- /row -->
               <ul class="pagination pagination-lg pull-right">
           {% for i in pages.page_range %}
@@ -56,11 +56,7 @@
           {% endfor %}
       </ul>
 	</div><!-- /container -->
-     {% else %}
 
-    <center><h3>Malesef bu kategoride yazı bulunmamaktadır.</h3> </center>
-
-    {% endif %}
 {% endblock %}
 
 {% block last_content %}
